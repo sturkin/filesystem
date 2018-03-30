@@ -8,7 +8,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Zealot//Filesystem//\": "src/"
+      "Zealot//Filesystem": "src/"
     }
   }
 }
