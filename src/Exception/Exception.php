@@ -6,7 +6,7 @@
  * Time: 17:23
  */
 
-namespace Src\Zealot\Filesystem\Exception;
+namespace Zealot\Filesystem\Exception;
 
 
 class Exception extends \Exception

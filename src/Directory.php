@@ -1,10 +1,10 @@
 <?php
 
-namespace Src\Zealot\Filesystem;
+namespace Zealot\Filesystem;
 
-use Src\Zealot\Filesystem\Exception\Exception;
-use Src\Zealot\Filesystem\FileInfo;
-use Src\Zealot\Filesystem\FileInfoCollection;
+use Zealot\Filesystem\Exception\Exception;
+use Zealot\Filesystem\FileInfo;
+use Zealot\Filesystem\FileInfoCollection;
 
 /**
  * Class Directory

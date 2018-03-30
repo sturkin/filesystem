@@ -6,7 +6,7 @@
  * Time: 10:30
  */
 
-namespace Src\Zealot\Filesystem\Csv;
+namespace Zealot\Filesystem\Csv;
 
 
 class Writer extends File

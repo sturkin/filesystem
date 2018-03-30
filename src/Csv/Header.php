@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Zealot\Filesystem\Csv;
+namespace Zealot\Filesystem\Csv;
 
 
 class Header

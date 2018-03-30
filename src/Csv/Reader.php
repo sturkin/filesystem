@@ -1,10 +1,10 @@
 <?php
 
-namespace Src\Zealot\Filesystem\Csv;
+namespace Zealot\Filesystem\Csv;
 
-use Src\Zealot\Filesystem\Exception\EmptyFileException;
-use Src\Zealot\Filesystem;
-use Src\Zealot\Filesystem\Csv\Header;
+use Zealot\Filesystem\Exception\EmptyFileException;
+use Zealot\Filesystem;
+use Zealot\Filesystem\Csv\Header;
 
 class Reader extends File {
 

@@ -6,10 +6,10 @@
  * Time: 15:45
  */
 
-namespace Src\Zealot\Filesystem;
+namespace Zealot\Filesystem;
 
-use Src\Zealot\Filesystem\File;
-use Src\Zealot\Filesystem\Csv;
+use Zealot\Filesystem\File;
+use Zealot\Filesystem\Csv;
 
 class FileInfo extends \SplFileInfo
 {

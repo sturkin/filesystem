@@ -6,9 +6,9 @@
  * Time: 11:26
  */
 
-namespace Src\Zealot\Filesystem;
+namespace Zealot\Filesystem;
 
-use Src\Zealot\Filesystem\Exception\Exception;
+use Zealot\Filesystem\Exception\Exception;
 
 class File implements \Iterator
 {

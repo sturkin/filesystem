@@ -6,9 +6,9 @@
  * Time: 14:40
  */
 
-namespace Src\Zealot\Filesystem\Exception;
+namespace Zealot\Filesystem\Exception;
 
-use Src\Zealot\Filesystem\Exception\Exception;
+use Zealot\Filesystem\Exception\Exception;
 
 class EmptyFileException extends Exception
 {

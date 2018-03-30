@@ -6,10 +6,10 @@
  * Time: 16:44
  */
 
-namespace Src\Zealot\Filesystem;
+namespace Zealot\Filesystem;
 
-use Src\Zealot\Filesystem\FileInfo;
-use Src\Zealot\Filesystem\Exception\Exception;
+use Zealot\Filesystem\FileInfo;
+use Zealot\Filesystem\Exception\Exception;
 
 class FileInfoCollection implements \SeekableIterator, \ArrayAccess, \Countable
 {

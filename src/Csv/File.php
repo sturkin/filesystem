@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Zealot\Filesystem\Csv;
+namespace Zealot\Filesystem\Csv;
 
-use Src\Zealot\Filesystem;
+use Zealot\Filesystem;
 
 class File extends Filesystem\File {
 
