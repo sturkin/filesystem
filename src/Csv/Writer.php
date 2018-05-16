@@ -12,6 +12,11 @@ namespace Zealot\Filesystem\Csv;
 class Writer extends File
 {
 
+    public function __construct($path, $mode = 'w+', $delimiter=',',$enclosure='"',$escape="\\")
+    {
+        parent::__construct($path, $mode, $delimiter, $enclosure, $escape);
+    }
+
     public function addRow(array $row){
         $this->getFile()->fputcsv($row,$this->getDelimiter(),$this->getEnclosure(),$this->getEscape());
     }
@@ -21,9 +26,4 @@ class Writer extends File
             $this->addRow($row);
         }
     }
-
-    protected function createFileObject($path) {
-        return new \SplFileObject($path,'w+');
-    }
-
 }

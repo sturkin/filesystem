@@ -11,6 +11,11 @@ class Reader extends File {
 
     protected $header;
 
+    public function __construct($path, $delimiter=',',$enclosure='"',$escape="\\")
+    {
+        parent::__construct($path, 'r', $delimiter, $enclosure, $escape);
+    }
+
     public function var_dump(){
         foreach ($this as $row) {
             var_dump($row);
@@ -60,6 +65,8 @@ class Reader extends File {
     }
 
     protected function fillFieldNames($lineArr) {
+        //array_combine
+        /*
         $lineFilledArr = [];
         foreach ($lineArr as $fieldId => $value) {
             $fieldName = $this->getHeader()->fieldIdToName($fieldId);
@@ -67,6 +74,9 @@ class Reader extends File {
         }
 
         return $lineFilledArr;
+        */
+
+        return array_combine($this->getHeader()->_toArray(),$lineArr);
     }
 
     protected function _initFile(\SplFileObject $file)

@@ -17,7 +17,12 @@ class Directory
     protected $path;
     protected $content;
 
-    public function __construct($path)
+    /**
+     * Directory constructor.
+     * @param string $path
+     * @throws Exception
+     */
+    public function __construct(string $path)
     {
         if(!file_exists($path)) {
             throw new Exception('Invalid path to directory');
@@ -30,6 +35,11 @@ class Directory
     }
 
 
+    /**
+     * find all elements in $path
+     * @param int $limit
+     * @return \Zealot\Filesystem\FileInfoCollection
+     */
     public function all($limit = 0) : FileInfoCollection {
         return $this->filterContent(null, $limit);
     }
@@ -52,6 +62,12 @@ class Directory
         );
     }
 
+    /**
+     * find all files from $path and return FileInfoCollection
+     * @param int $limit
+     * @param bool $filterOutDotStartElements if true - skip all elements that starts from . (hidden files and . ..)
+     * @return \Zealot\Filesystem\FileInfoCollection
+     */
     public function files($limit = 0, $filterOutDotStartElements = false) : FileInfoCollection {
         return $this->filterContent(function(\SplFileInfo $element) use ($filterOutDotStartElements) {
             $res = true;
@@ -65,6 +81,12 @@ class Directory
         );
     }
 
+    /**
+     * find all dirs from $path and return FileInfoCollection
+     * @param int $limit
+     * @param bool $filterOutDotStartElements if true - skip all elements that starts from . (hidden files and . ..)
+     * @return \Zealot\Filesystem\FileInfoCollection
+     */
     public function directories($limit = 0, $filterOutDotStartElements = false) : FileInfoCollection {
         return $this->filterContent(function(\SplFileInfo $element) use ($filterOutDotStartElements) {
             $res = true;

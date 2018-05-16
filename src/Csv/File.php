@@ -11,14 +11,18 @@ class File extends Filesystem\File {
     protected $enclosure = '"';
     protected $escape = '\\';
 
-    protected $fileInitialized = false;
-
-    public function __construct($path,$delimiter=',',$enclosure='"',$escape="\\")
+    public function __construct($path,$mode = 'r',$delimiter=',',$enclosure='"',$escape="\\")
     {
-        parent::__construct($path);
+        parent::__construct($path,$mode);
         $this->setDelimiter($delimiter);
         $this->setEnclosure($enclosure);
         $this->setEscape($escape);
+
+        $this->_initFile($this->getFile());
+    }
+
+    public function write($row) {
+        $this->getFile()->fputcsv($row,$this->getDelimiter(),$this->getEnclosure(),$this->getEscape());
     }
 
     // START GETTERS/SETTERS
@@ -48,32 +52,11 @@ class File extends Filesystem\File {
     {
         $this->escape = $escape;
     }
-
-    public function isFileInitialized(): bool
-    {
-        return $this->fileInitialized;
-    }
-    public function setFileInitialized()
-    {
-        $this->fileInitialized = true;
-    }
     // END GETTERS/SETTERS
-
-
-    protected function getFile()
-    {
-        $file = parent::getFile();
-        if( !$this->isFileInitialized() ) {
-            $this->_initFile($file);
-        }
-
-        return $file;
-    }
 
     protected function _initFile(\SplFileObject $file) {
         $file->setFlags(\SplFileObject::READ_CSV | \SplFileObject::READ_AHEAD | \SplFileObject::SKIP_EMPTY | \SplFileObject::DROP_NEW_LINE);
         $file->setCsvControl($this->getDelimiter(),$this->getEnclosure(),$this->getEscape());
-        $this->setFileInitialized();
     }
 
 

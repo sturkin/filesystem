@@ -15,21 +15,39 @@ class File implements \Iterator
     protected $path;
     protected $file;
 
-
-    public function __construct($path)
+    //TODO: add getters/setters section
+    public function __construct($path, $mode = 'r')
     {
         $this->path = $path;
+        $this->file = $this->createFileObject($this->path, $mode);
+    }
+
+    public function write($str) {
+        $this->getFile()->fwrite($str);
+        $this->getFile()->fflush();
+    }
+
+    public function read($length) {
+        return $this->getFile()->fread($length);
+    }
+
+    public function ftell() {
+        return $this->getFile()->ftell();
+    }
+
+    public function fseek($offset) {
+        $this->getFile()->fseek($offset);
+    }
+
+    public function isEnd() {
+        return $this->getFile()->eof();
     }
 
     protected function getFile() {
-        if(empty($this->file)) {
-            $this->file =$this->createFileObject($this->path);
-        }
-
         return $this->file;
     }
-    protected function createFileObject($path) {
-        return new \SplFileObject($path);
+    protected function createFileObject($path, $mode = "r") {
+        return new \SplFileObject($path,$mode);
     }
 
     // Start proxy-methods from SplFileObject
@@ -47,6 +65,9 @@ class File implements \Iterator
     }
     public function valid() {
         return $this->getFile()->valid();
+    }
+    public function seek($offset) {
+        $this->getFile()->seek($offset);
     }
     // End proxy-methods from SplFileObject
 
