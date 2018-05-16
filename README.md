@@ -4,7 +4,7 @@ Lib to find/read/write text/csv files. Note only for unix like systems
 
 ## Getting Started
 
-```
+```php
 //1) Directory class uses to find files. (Note: it isn't recursive)
 //Example:
 
